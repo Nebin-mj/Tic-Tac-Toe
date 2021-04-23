@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  justify-content: center;
+  align-content: center;
+}
+
+.cell {
+  border: solid black 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(n + 7) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3n) {
+  border-right: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell.x::before,
+.cell.x::after {
+  content: "";
+  width: 10%;
+  height: 90%;
+  background-color: black;
+  position: absolute;
+}
+
+.cell.x::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after {
+  transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.cell.o::after {
+  content: "";
+  position: absolute;
+}
+
+.cell.o::before {
+  background-color: black;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.cell.o::after {
+  background-color: white;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
+
+.cell.x:hover,
+.cell.o:hover {
+  cursor: not-allowed;
+}
+
+.container.o .cell:not(.x):not(.o):hover::before,
+.container.o .cell:not(.x):not(.o):hover::after,
+.container .cell:not(.x):not(.o):hover::before,
+.container .cell:not(.x):not(.o):hover::after {
+  content: "";
+  width: 10%;
+  height: 90%;
+  background-color: black;
+  position: absolute;
+}
+.container.o .cell:not(.x):not(.o):hover::before,
+.container .cell:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+
+.container.o .cell:not(.x):not(.o):hover::after,
+.container .cell:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.container.x .cell:not(.x):not(.o):hover::before,
+.container.x .cell:not(.x):not(.o):hover::after {
+  content: "";
+  position: absolute;
+}
+
+.container.x .cell:not(.x):not(.o):hover::before {
+  background-color: black;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+}
+
+.container.x .cell:not(.x):not(.o):hover::after {
+  background-color: white;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
