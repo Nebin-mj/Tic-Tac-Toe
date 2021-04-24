@@ -89,7 +89,7 @@
   content: "";
   width: 10%;
   height: 90%;
-  background-color: black;
+  background-color: lightgray;
   position: absolute;
 }
 .container.o .cell:not(.x):not(.o):hover::before,
@@ -109,7 +109,7 @@
 }
 
 .container.x .cell:not(.x):not(.o):hover::before {
-  background-color: black;
+  background-color: lightgray;
   width: 90%;
   height: 90%;
   border-radius: 50%;
@@ -120,4 +120,34 @@
   width: 70%;
   height: 70%;
   border-radius: 50%;
+}
+
+.result {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.reset {
+  background-color: white;
+  padding: 5px;
+  font-weight: bolder;
+  font-size: large;
+  border: solid 2px black;
+  border-radius: 10px;
+}
+
+.reset:hover {
+  background-color: black;
+  color: white;
+  border: solid 2px white;
+  cursor: pointer;
 }
